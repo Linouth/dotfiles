@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+if [ ! -z "$1" ]; then
+	if [ ! -z "$2" ]; then
+		timeout=$2
+	else
+		timeout=4s
+	fi
+
+	CD="$HOME/.Xresources"
+	BG=$(cat ${CD} | grep -i background | tail -c 8)
+	FG=$(cat ${CD} | grep -i foreground | tail -c 8)
+
+
+	(echo "%{c}$1"; sleep $timeout) | lemonbar -d -g 200x25+1715+25 -F "${FG}" -B "${BG}"
+fi

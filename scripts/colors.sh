@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+
+foreground=$(xrdb -query | grep -G '.*foreground:' | cut -f2)
+background=$(xrdb -query | grep -G '.*background:' | cut -f2)
+color0=$(xrdb -query | grep -G '.*color0:' | cut -f2)
+color1=$(xrdb -query | grep -G '.*color1:' | cut -f2)
+color2=$(xrdb -query | grep -G '.*color2:' | cut -f2)
+color3=$(xrdb -query | grep -G '.*color3:' | cut -f2)
+color4=$(xrdb -query | grep -G '.*color4:' | cut -f2)
+color5=$(xrdb -query | grep -G '.*color5:' | cut -f2)
+color6=$(xrdb -query | grep -G '.*color6:' | cut -f2)
+color7=$(xrdb -query | grep -G '.*color7:' | cut -f2)
+color8=$(xrdb -query | grep -G '.*color8:' | cut -f2)
+color9=$(xrdb -query | grep -G '.*color9:' | cut -f2)
+color10=$(xrdb -query | grep -G '.*color10:' | cut -f2)
+color11=$(xrdb -query | grep -G '.*color11:' | cut -f2)
+color12=$(xrdb -query | grep -G '.*color12:' | cut -f2)
+color13=$(xrdb -query | grep -G '.*color13:' | cut -f2)
+color14=$(xrdb -query | grep -G '.*color14:' | cut -f2)
+color15=$(xrdb -query | grep -G '.*color15:' | cut -f2)

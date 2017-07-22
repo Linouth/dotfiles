@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+while true; do
+    clear;
+    sensors | grep -A3 --color=never 'Core 0:';
+    sleep 5;
+done

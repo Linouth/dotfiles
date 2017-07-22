@@ -1,0 +1,5 @@
+#!/bin/sh
+
+(kill `ps -aux | grep 'sh ' | grep bar.sh | grep -v grep | awk '{ print $2 }'`; killall lemonbar; sleep 1s; sh ~/.config/lemonbar/bar.sh &) &
+
+i3-msg restart &

@@ -1,0 +1,4 @@
+# Machine specific config files / symlinks
+# -----------------------------------
+config/lemonbar/bar.sh
+config/i3/config

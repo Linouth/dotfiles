@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+if [ $# -lt 1 ]; then
+	echo 'Usage: stacksync <local> [<remote>]'
+	exit 1
+fi
+
+if ! grep -qs '/mnt/stack' /proc/mounts; then
+	mount /mnt/stack
+fi
+
+if [ ! -z $2 ]; then
+	rsync -az $1 /mnt/stack/$2
+	exit 0
+else
+	out=$(if [[ $1 == '~/'* ]]; then echo $(cut -c3- <<< $2);fi)
+	out=$(if [[ $1 == '/home/marten/'* ]]; then echo $(cut -c14- <<< $2);fi)
+	rsync -az $1 /mnt/stack/$out
+fi
