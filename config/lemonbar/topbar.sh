@@ -38,7 +38,7 @@ vol() {
 
 mem() {
     mkb=$(cat /proc/meminfo | awk '/Active:/{print $2}')
-    mmb=${mkb:0:4}
+    mmb=${mkb:0:-3}
     echo -e "$accent\ue020$text ${mmb}M"
 }
 
@@ -53,8 +53,49 @@ song() {
     fi
 }
 
+tickerloc="/tmp/"
+ticker() {
+    default="ethereum"
+    if [ ! -z $1 ]; then
+        default="$1"
+    fi
+    tickerloc="${tickerloc}cmc.$default"
+
+    usd=$(cat $tickerloc | jq -r '.[0].price_usd')
+    btc=$(cat $tickerloc | jq -r '.[0].price_btc')
+    sym=$(cat $tickerloc | jq -r '.[0].symbol')
+
+    echo -e "${accent}$sym$text $btc"
+}
+
+updateticker() {
+
+    default="ethereum"
+    if [ ! -z $1 ]; then
+        default="$1"
+    fi
+    f="${tickerloc}cmc.$default"
+    
+    src="https://api.coinmarketcap.com/v1/ticker/$default/"
+    res=$(curl -s $src > $f)
+}
+
+t=0
+updatetickers() {
+    timeout=30
+
+    if [ $(($t+$timeout)) -lt $(date +%s) ]; then
+        echo "Updated" 1>&2
+        t=$(date +%s)
+
+        updateticker district0x
+        updateticker omisego
+    fi
+}
+
 
 while true; do
-    echo "%{l}  $(clock)   $(cal) %{r}$(song)   $(vol)   $(mem)  "
+    updatetickers
+    echo "%{l}  $(clock)   $(cal) %{r}$(song)   $(vol)   $(mem)   $(ticker omisego) $(ticker district0x)  "
     sleep 0.2
 done
