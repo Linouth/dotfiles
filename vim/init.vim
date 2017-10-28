@@ -1,9 +1,31 @@
 " -------------
 " Load Pathogen
 " -------------
-set nocp
-execute pathogen#infect()
+"set nocp
+"execute pathogen#infect()
 
+" ----------------------------
+" Load Plug and define plugins
+" ----------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/base16-vim'
+Plug 'sjl/gundo.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'majutsushi/tagbar'
+Plug 'easymotion/vim-easymotion'
+Plug 'nvie/vim-flake8', { 'for': 'python'}
+Plug 'lepture/vim-jinja', { 'for': 'jinja' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'evidens/vim-twig', { 'for': 'twig' }
+
+call plug#end()
 
 " -----------------
 " Syntax and indent

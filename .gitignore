@@ -2,3 +2,4 @@
 # -----------------------------------
 config/lemonbar/bar.sh
 config/i3/config
+vim/plugged
