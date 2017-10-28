@@ -1,0 +1,23 @@
+#/bin/sh
+
+if [ -f "$userresources" ]; then
+    xrdb -I$HOME/.dotfiles/mArch/Xresources -merge "$userresources"
+fi
+
+# Configure monitors
+xrandr --output DP-1.8 --mode 2560x1440 --primary --output DVI-D-0 --mode 1920x1080 --pos 2560x180 --output HDMI-1 --off &
+
+# Launch Compton
+compton --xrender-sync --xrender-sync-fence --config ~/.config/compton.conf -b
+
+# Configure mouse speed
+xinput --set-prop 18 'libinput Accel Speed' -0.9 &
+
+# Launch Redshift
+redshift -l 52.743142:5.852879 &
+
+# Launch Mopidy and scan for new files in library
+mopidy local scan & mopidy &
+
+# Launch WM
+exec i3 

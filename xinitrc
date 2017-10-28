@@ -17,10 +17,6 @@ if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
-if [ -f "$userresources" ]; then
-    xrdb -I$HOME/.dotfiles/Xresources -merge "$userresources"
-fi
-
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
@@ -40,4 +36,7 @@ fi
 
 xkbcomp -w 0 ~/.config/xkbmap $DISPLAY
 
-source .xinitrc-local
+[ -f ".xinitrc-local" ] && . "$HOME/.xinitrc-local"
+
+# if local file not found, start xterm
+exec xterm -geometry 80x66+0+0 -name login
