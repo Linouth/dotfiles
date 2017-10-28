@@ -1,0 +1,25 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.gitignore:
+    ~/.bin:
+    ~/.config/mopidy: config/mopidy
+    ~/.config/xkbmap: config/xkbmap
+    ~/.xinitrc:
+    ~/.vimrc: vim/init.vim
+    ~/.vim: vim
+    ~/.config/nvim: vim
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.dircolors:
+    ~/.scripts:
+    ~/.bash_profile:
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - chmod +x bin/*

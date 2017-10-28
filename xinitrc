@@ -38,10 +38,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#xrandr --output DVI-I-1 --mode 1024x768 --pos 1920x150 --output DVI-D-1 --mode 1920x1080 --pos 0x0 --primary --output HDMI-1 --off &
-xrandr --output DP-1.8 --mode 2560x1440 --primary --output DVI-D-0 --mode 1920x1080 --pos 2560x180 --output HDMI-1 --off &
-mopidy &
-
-xinput --set-prop 18 'libinput Accel Speed' -0.9 &
 xkbcomp -w 0 ~/.config/xkbmap $DISPLAY
-exec i3 
+
+source .xinitrc-local

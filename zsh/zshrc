@@ -1,0 +1,22 @@
+source ~/.dotfiles/zsh/plugins/antigen.zsh
+
+# Load oh-my-zsh library
+antigen use oh-my-zsh
+
+# Load bundles
+antigen bundle git
+antigen bundle pip
+antigen bundle git
+antigen bundle archlinux
+antigen bundle common-aliases
+antigen bundle npm
+antigen bundle python
+antigen bundle sudo
+antigen bundle colored-man-pages
+antigen bundle colorize
+
+# Source local config file
+source ~/.zshrc-local
+
+# Apply antigen
+antigen apply

@@ -1,7 +1,0 @@
-#include <./Xresources.d/active>
-#include <./Xresources.d/urxvt>
-#include <./Xresources.d/rofi>
-
-/* *.font: -gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso10646-1 */
-*.font: xft:Gohu GohuFont:pixelsize=11
-/* *.font: xft:iosevka:style=bold:pixelsize=12 */
