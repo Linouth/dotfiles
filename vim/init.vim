@@ -130,8 +130,9 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " easymotion
-map <Space> <Plug>(easymotion-prefix)
-
+map  <Space> <Plug>(easymotion-prefix)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " ------------
 " Theme config
