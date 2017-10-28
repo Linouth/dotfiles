@@ -8,7 +8,6 @@
 - link:
     ~/.gitignore:
     ~/.bin:
-    ~/.config/mopidy: config/mopidy
     ~/.config/xkbmap: config/xkbmap
     ~/.xinitrc:
     ~/.vimrc: vim/init.vim
