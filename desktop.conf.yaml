@@ -5,6 +5,8 @@
 
 - link:
     ~/.config/i3: mArch/config/i3
+    ~/.config/bspwm: mArch/config/bspwm
+    ~/.config/sxhkd: mArch/config/sxhkd
     ~/.config/lemonbar: mArch/config/lemonbar
     ~/.config/compton.conf: mArch/config/compton.conf
     ~/.config/mopidy: mArch/config/mopidy

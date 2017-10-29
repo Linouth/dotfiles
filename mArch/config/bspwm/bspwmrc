@@ -1,0 +1,28 @@
+#! /bin/sh
+
+bspc config border_width        2
+bspc config window_gap         12
+
+# visual options
+bspc config split_ratio         0.50
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config focus_follows_pointer true
+
+# open panes to the right
+bspc config initial_polarity second_child
+
+# bspc monitor DP-1.8 -s DVI-D-0
+# id from 'bspc monitor -M'
+bspc monitor 0x00C00002 -d 1 2 3 4 5
+bspc monitor DVI-D-0 -d 6 7 8 9 0
+
+# application specific rules
+bspc rule -a Gimp follow=on floating=on
+
+# set wallpaper
+setwp t
+
+# launch panel
+# panel &
+sh ~/.config/lemonbar/init.sh &
