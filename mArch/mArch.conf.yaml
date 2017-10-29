@@ -1,0 +1,19 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- link:
+    ~/.config/i3: config/i3
+    ~/.config/bspwm: config/bspwm
+    ~/.config/sxhkd: config/sxhkd
+    ~/.config/lemonbar: config/lemonbar
+    ~/.config/compton.conf: config/compton.conf
+    ~/.config/mopidy: config/mopidy
+    ~/.Xresources: Xresources/Xresources
+    ~/.xinitrc-local:
+    ~/.zshrc-local:
+
+- shell:
+    - [xrdb -merge ~/.Xresources, Merging Xresources]
+    - [sh edid.sh, Forcing EDID for broken monitor]
