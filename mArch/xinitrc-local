@@ -20,4 +20,7 @@ redshift -l 52.743142:5.852879 &
 mopidy local scan & mopidy &
 
 # Launch WM
-exec i3 
+xsetroot -cursor_name left_ptr &
+sxhkd &
+exec bspwm
+# exec i3 
