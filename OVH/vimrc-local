@@ -1,0 +1,6 @@
+"
+" ------------
+" Theme config
+" ------------
+" let base16colorspace=256
+colorscheme slate
