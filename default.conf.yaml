@@ -19,6 +19,7 @@
     ~/.scripts:
     ~/.bash_profile:
     ~/.tmux.conf:
+    ~/.themes:
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

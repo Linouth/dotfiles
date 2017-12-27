@@ -5,8 +5,6 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-# resourcestheme=$HOME/ricing/Xresources/.active
-
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -21,12 +19,6 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# if [ -f "$resourcestheme" ]; then
-#     xrdb -merge "$resourcestheme"
-# fi
-
-# start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -36,7 +28,7 @@ fi
 
 xkbcomp -w 0 ~/.config/xkbmap $DISPLAY
 
-[ -f ".xinitrc-local" ] && . "$HOME/.xinitrc-local"
+[ -f "$HOME/.xinitrc-local" ] && . "$HOME/.xinitrc-local"
 
 # if local file not found, start xterm
 exec xterm -geometry 80x66+0+0 -name login

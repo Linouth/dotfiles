@@ -5,3 +5,4 @@ config/i3/config
 vim/plugged
 vim/.netrwhist
 vim/vimrc-local
+themes/active
