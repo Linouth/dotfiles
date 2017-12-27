@@ -9,16 +9,7 @@ set $mod        Mod1
 exec --no-startup-id sh ~/.bin/setwp t
 
 # Launch Lemonbar
-exec sh ~/.config/lemonbar/init.sh 
-
-# Launch Compton
-#exec --no-startup-id compton --xrender-sync --xrender-sync-fence --config /home/marten/.config/compton.conf -b
-
-# Launch Redshift
-#exec --no-startup-id redshift -l 52.743142:5.852879
-
-# Launch Mopidy but first scan for new files in library
-#exec --no-startup-id mopidy local scan & mopdiy
+# exec sh ~/.config/lemonbar/init.sh 
 
 
 ##
@@ -39,6 +30,10 @@ set $resize     5
 
 # Set termial to use
 set $terminal   urxvt
+
+# Set browsers to use
+set $browser        qutebrowser
+set $browser-alt    firefox
 
 # Window options
 focus_follows_mouse             true
@@ -74,8 +69,8 @@ bindsym $mod+n          gaps inner current set 0; gaps outer current set 0
 bindsym $mod+m          gaps inner current set $gapsi; gaps outer current set $gapso
 bindsym $mod+Shift+m    gaps inner current set $pgapsi; gaps outer current set $pgapso
 
-# Restart i3 and reconfigure other items
-bindsym $mod+Shift+r    exec --no-startup-id sh ~/.config/reconfigure.sh
+# Reload i3 ##and reconfigure other items
+bindsym $mod+Shift+r    reload
 # Exit i3
 bindsym $mod+Shift+e    exit
 
@@ -118,15 +113,12 @@ bindsym $mod+Shift+d    exec --no-startup-id rofi -show window -terminal urxvt -
 # Open terminal
 bindsym $mod+Return     exec $terminal
 # Open web-browser
-bindsym $mod+Shift+w    exec chromium
-bindsym Mod4+Shift+w    exec brave-git
+bindsym $mod+Shift+w    exec $browser
+bindsym $mod+Ctrl+w     exec $browser-alt
 
 # Take Screenshot
-bindsym --release Print         exec --no-startup-id scrot -q85 -s '/home/marten/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'echo -n $f | xsel --clipboard'
-bindsym --release Shift+Print   exec --no-startup-id scrot -q85 -s '/home/marten/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e '~/.bin/imgur.py $f 2>>~/Pictures/Screenshots/url_delete | xsel --clipboard'
-# bindsym Print               exec scrot '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png'
-# bindsym Shift+Print         exec scrot '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -s
-# bindsym $mod+Shift+Print    exec scrot '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -se 'xsel --clipboard < imgurbash.sh $f'
+bindsym --release Print         exec --no-startup-id scrot -q85 -s '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'echo -n $f | xsel --clipboard'
+bindsym --release Shift+Print   exec --no-startup-id scrot -q85 -s '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e '~/.bin/imgur.py $f 2>>~/Pictures/Screenshots/url_delete | xsel --clipboard'
 
 
 ##
@@ -173,17 +165,17 @@ bindsym $mod+Shift+8        move container to workspace $ws8
 bindsym $mod+Shift+9        move container to workspace $ws9
 bindsym $mod+Shift+0        move container to workspace $ws0
 
-# Workspace location
-workspace $ws1 output DP-1.8
-workspace $ws2 output DP-1.8
-workspace $ws3 output DP-1.8
-workspace $ws4 output DP-1.8
-workspace $ws5 output DP-1.8
-workspace $ws6 output DVI-D-0
-workspace $ws7 output DVI-D-0
-workspace $ws8 output DVI-D-0
-workspace $ws9 output DVI-D-0
-workspace $ws0 output DVI-D-0
+## Workspace location -- laptop with one screen...
+# workspace $ws1 output DP-1.8
+# workspace $ws2 output DP-1.8
+# workspace $ws3 output DP-1.8
+# workspace $ws4 output DP-1.8
+# workspace $ws5 output DP-1.8
+# workspace $ws6 output DVI-D-0
+# workspace $ws7 output DVI-D-0
+# workspace $ws8 output DVI-D-0
+# workspace $ws9 output DVI-D-0
+# workspace $ws0 output DVI-D-0
 
 ##
 # Movement
@@ -216,10 +208,10 @@ bindsym $mod+g                  split h
 bindsym $mod+v                  split v
 
 # Floating mode
-floating_modifier       $mod
+floating_modifier               $mod
 
 # Sticky window
-#bindsym $mod+Shift+S    sticky toggle
+#bindsym $mod+Shift+S           sticky toggle
 
 ##
 # Program Specific
@@ -285,7 +277,7 @@ set_from_resource $white    i3wm.color15    #FFFFFF
 #client.placeholder         #000000 #0c0c0c #ffffff #000000
 
 
-# Set border colors
+# Set border colors using Xresources data
 # class                     border      background  text        indicator
 client.focused              $hgreen     $hgreen     $white      $white
 client.focused_inactive     $gray       $gray       $white      $grey
