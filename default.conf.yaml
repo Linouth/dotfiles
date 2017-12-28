@@ -9,6 +9,7 @@
     ~/.gitignore:
     ~/.bin:
     ~/.config/xkbmap: config/xkbmap
+    ~/.config/i3/01-global: config/i3/01-global
     ~/.xinitrc:
     ~/.vimrc: vim/init.vim
     ~/.vim: vim

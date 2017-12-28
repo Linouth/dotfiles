@@ -12,4 +12,6 @@ fi
 #xsetroot -cursor_name left_ptr &
 #sxhkd &
 #exec bspwm
+
+cat ~/.config/i3/0* > ~/.config/i3/config
 exec i3 
