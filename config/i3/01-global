@@ -69,8 +69,8 @@ bindsym $mod+n          gaps inner current set 0; gaps outer current set 0
 bindsym $mod+m          gaps inner current set $gapsi; gaps outer current set $gapso
 bindsym $mod+Shift+m    gaps inner current set $pgapsi; gaps outer current set $pgapso
 
-# Reload i3 ##and reconfigure other items
-bindsym $mod+Shift+r    reload
+# Recompile i3 config and reload
+bindsym $mod+Shift+r    exec --no-startup-id cat ~/.config/i3/0* > ~/.config/i3/config && i3-msg reload
 # Exit i3
 bindsym $mod+Shift+e    exit
 
@@ -104,6 +104,10 @@ bindsym $mod+Left   focus left
 bindsym $mod+Down   focus down
 bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
+
+# Move and open scratchpad
+bindsym $mod+Shift+minus    move scratchpad
+bindsym $mod+minus          scratchpad show
 
 # Open dmenu or rofi
 # bindsym $mod+d      exec --no-startup-id dmenu_run

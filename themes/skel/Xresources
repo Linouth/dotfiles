@@ -1,0 +1,46 @@
+! --- theme
+! By ---
+
+#define bg    #2c2a2b
+#define fg    #bab9ba
+
+#define blk   #03112B
+#define red   #a67979
+#define grn   #809f7b
+#define ylw   #baad8a
+#define blu   #6d7575
+#define mag   #7d6969
+#define cyn   #7b9899
+#define wht   #bab9ba
+
+#define bblk  #545253
+#define bred  #a67979
+#define bgrn  #809f7b
+#define bylw  #baad8a
+#define bblu  #6d7575
+#define bmag  #7d6969
+#define bcyn  #7b9899
+#define bwht  #bab9ba
+
+*foreground:   fg
+*background:   bg
+
+*color0:       blk
+*color1:       red
+*color2:       grn
+*color3:       ylw
+*color4:       blu
+*color5:       mag
+*color6:       cyn
+*color7:       wht
+
+*color8:       bblk
+*color9:       bred
+*color10:      bgrn
+*color11:      bylw
+*color12:      bblu
+*color13:      bmag
+*color14:      bcyn
+*color15:      bwht
+
+*cursorColor:  wht
