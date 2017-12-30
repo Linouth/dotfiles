@@ -1,0 +1,7 @@
+URxvt.scrollBar:	false
+URxvt*internalBorder:   16
+
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true

@@ -4,3 +4,6 @@ config/lemonbar/bar.sh
 config/i3/config
 vim/plugged
 vim/.netrwhist
+vim/vimrc-local
+themes/active
+*/config/i3/config

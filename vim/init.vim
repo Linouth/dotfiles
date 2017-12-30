@@ -10,6 +10,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'felixhummel/setcolors.vim'
 Plug 'sjl/gundo.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-commentary'
@@ -135,8 +137,4 @@ map  <Space> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
-" ------------
-" Theme config
-" ------------
-let base16colorspace=256
-colorscheme base16-darktooth
+source ~/.vim/vimrc-local

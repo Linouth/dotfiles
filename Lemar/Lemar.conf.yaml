@@ -1,0 +1,16 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- link:
+    ~/.config/i3: config/i3
+    ~/.config/lemonbar: config/lemonbar
+    ~/.config/compton.conf: config/compton.conf
+    ~/.config/dunst: config/dunst
+    ~/.Xresources: Xresources/Xresources
+    ~/.xinitrc-local:
+    ~/.zshrc-local:
+
+- shell:
+    - [xrdb -merge ~/.Xresources, Merging Xresources]
