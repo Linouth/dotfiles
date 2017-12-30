@@ -24,6 +24,7 @@ Plug 'nvie/vim-flake8', { 'for': 'python'}
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 call plug#end()
 
