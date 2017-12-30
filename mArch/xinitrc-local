@@ -21,6 +21,6 @@ mopidy local scan & mopidy &
 
 # Launch WM
 xsetroot -cursor_name left_ptr &
-sxhkd &
-exec bspwm
-# exec i3 
+# sxhkd &
+# exec bspwm
+exec i3 

@@ -8,6 +8,10 @@ XF86AudioLowerVolume
 XF86AudioMute
 	amixer set Master toggle
 
+# Toggle headphones
+alt + XF86AudioMute
+    amixer -c 0 set 'Front Panel' toggle
+
 # Media Control
 XF86AudioPlay
 	mpc toggle

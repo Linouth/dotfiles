@@ -21,7 +21,7 @@ bspc monitor DVI-D-0 -d 6 7 8 9 0
 bspc rule -a Gimp follow=on floating=on
 
 # set wallpaper
-setwp t
+setwp t &
 
 # launch panel
 # panel &

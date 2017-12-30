@@ -1,5 +1,6 @@
 typeset -U path
 path=($path ~/.bin)
+path=($path ~/.gem/ruby/2.4.0/bin)
 
 EDITOR="nvim"
 FCEDIT="nvim"
