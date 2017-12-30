@@ -1,0 +1,2 @@
+# Launch Lemonbar
+exec sh ~/.config/lemonbar/init.sh 
