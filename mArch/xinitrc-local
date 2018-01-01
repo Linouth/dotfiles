@@ -23,4 +23,6 @@ mopidy local scan & mopidy &
 xsetroot -cursor_name left_ptr &
 # sxhkd &
 # exec bspwm
+
+~/.themes/reconfigure.py &
 exec i3 
