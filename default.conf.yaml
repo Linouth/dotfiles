@@ -9,7 +9,9 @@
     ~/.gitignore:
     ~/.bin:
     ~/.config/xkbmap: config/xkbmap
-    ~/.config/i3/01-global: config/i3/01-global
+    ~/.config/i3/00-global: config/i3/00-global
+    ~/.config/i3/02-theme: config/i3/02-theme
+    ~/.config/dunst/dunstrc.base: config/dunst/dunstrc.base
     ~/.xinitrc:
     ~/.vimrc: vim/init.vim
     ~/.vim: vim
