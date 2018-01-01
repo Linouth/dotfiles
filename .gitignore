@@ -7,3 +7,5 @@ vim/.netrwhist
 vim/vimrc-local
 themes/active
 */config/i3/config
+*/config/i3/02-theme
+mArch/config/mopidy/mopidy.conf
