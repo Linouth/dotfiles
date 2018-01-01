@@ -3,6 +3,7 @@
 
 foreground=$(xrdb -query | grep -G '.*foreground:' | cut -f2)
 background=$(xrdb -query | grep -G '.*background:' | cut -f2)
+highlights=$(xrdb -query | grep -G '.*highlights:' | cut -f2)
 color0=$(xrdb -query | grep -G '.*color0:' | cut -f2)
 color1=$(xrdb -query | grep -G '.*color1:' | cut -f2)
 color2=$(xrdb -query | grep -G '.*color2:' | cut -f2)
