@@ -5,6 +5,7 @@
 # Load colors from XResources
 set_from_resource $foreground   i3wm.foreground #000000
 set_from_resource $background   i3wm.background #000000
+set_from_resource $highlights   i3wm.highlights #000000
 
 set_from_resource $black    i3wm.color0     #000000
 set_from_resource $red      i3wm.color1     #000000
@@ -35,7 +36,7 @@ set_from_resource $white    i3wm.color15    #FFFFFF
 
 # Set border colors using Xresources data
 # class                     border      background  text        indicator
-client.focused              $hgreen     $hgreen     $white      $white
+client.focused              $highlights $highlights $white      $white
 client.focused_inactive     $gray       $gray       $white      $grey
 client.unfocused            $gray       $gray       $hgray      $gray
 #client.urgent
