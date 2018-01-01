@@ -2,7 +2,7 @@
 
 # Colors
 source "$HOME/.scripts/colors.sh"
-accent="%{F$color12}"
+accent="%{F$highlights}"
 text="%{F$foreground}"
 
 
@@ -47,9 +47,46 @@ song() {
     playing=$(mpc status | grep -o 'playing')
 
     if [ ! -z $playing ]; then
-        echo -e "$accent\ue05c$text $songv"
+        echo -e "|  $accent\ue05c$text $songv"
     else
         echo ''
+    fi
+}
+
+i3() {
+    ws=$(i3-msg -t get_workspaces)
+    out="%{U$highlights}"
+
+    for i in $1; do
+        t=$(grep -o -P "\"num\":$i.*?(\"rect\")" <<< $ws)
+        if [ ! -z $t ]; then
+            # Workspace not empty
+            v=$(grep -o '"visible":true' <<< $t)
+            if [ ! -z $v ]; then
+                # Workspace is visible
+                out="$out$accent%{!u} \u2b24 %{!u}$text"
+            else
+                # Workspace not visible
+                out="$out \u2b24 "
+            fi
+        else
+            # Workspace empty
+            out="$out \u2b55 "
+        fi
+    done
+
+    out="$out%{U-}"
+    echo -e "$out"
+}
+
+
+# Timeout function
+t=0
+timeout() {
+    if [ $(($t+$1)) -lt $(date +%s) ]; then
+        false
+    else
+        true
     fi
 }
 
@@ -78,11 +115,8 @@ updateticker() {
     res=$(curl -s $src > $f)
 }
 
-t=0
 updatetickers() {
-    timeout=30
-
-    if [ $(($t+$timeout)) -lt $(date +%s) ]; then
+    if timeout 30; then
         echo "Updated" 1>&2
         t=$(date +%s)
 
@@ -92,9 +126,12 @@ updatetickers() {
 }
 
 
+tmp="%{U$highlights}%{F$highlights}%{!u} \u2b24 %{F-}%{!u} \u2b24  \u2b55  \u2b55  \u2b55 "
 while true; do
-    # updatetickers
-    # echo "%{l}  $(clock)   $(cal) %{r}$(song)   $(vol)   $(mem)   $(ticker basic-attention-token) $(ticker district0x)  "
-    echo "%{l}%{B$background}   1  %{R} $(hostname) %{R}  $(mem)    $(vol)    %{B-} %{c}%{B$background}%{B-} %{r}%{B$background}   $(clock)    $(cal)   %{B-}"
+    i3l="$(i3 '1 2 3 4 5')"
+    i3r="$(i3 '6 7 8 9 0')"
+
+    echo -e "%{l}    $i3l  |  %{A:mute:}$(vol)%{A}  $(song) %{c}$(clock) - $(cal) %{r}$(mem)  |  $i3r    "
     sleep 0.2
+    t=$(date +%s)
 done
