@@ -5,4 +5,4 @@ PATH="$PATH:/home/marten/.bin"
 antigen theme afowler
 
 # Add base16-shell plugin for 256bit colors
-antigen use chriskempson/base16-shell
+#antigen use chriskempson/base16-shell

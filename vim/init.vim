@@ -10,6 +10,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim.git'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'sjl/gundo.vim'
