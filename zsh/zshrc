@@ -1,3 +1,4 @@
+#!/bin/zsh
 source ~/.dotfiles/zsh/plugins/antigen.zsh
 
 # Load oh-my-zsh library

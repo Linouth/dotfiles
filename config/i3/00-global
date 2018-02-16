@@ -6,7 +6,7 @@ set $mod        Mod1
 ##
 
 # Set WP
-exec --no-startup-id sh ~/.bin/setwp t
+# exec --no-startup-id sh ~/.bin/setwp t
 
 # Launch Lemonbar
 # exec sh ~/.config/lemonbar/init.sh 
