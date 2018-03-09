@@ -1,0 +1,2 @@
+# Set WP
+exec --no-startup-id sh ~/.bin/setwp

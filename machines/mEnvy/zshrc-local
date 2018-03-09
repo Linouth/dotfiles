@@ -1,0 +1,9 @@
+#!/bin/zsh
+# Configure global vars
+PATH="$PATH:/home/marten/.bin"
+
+# Set theme
+antigen theme afowler
+
+# Add base16-shell plugin for 256bit colors
+# antigen use chriskempson/base16-shell
