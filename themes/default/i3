@@ -3,27 +3,27 @@
 ##
 
 # Load colors from XResources
-set_from_resource $foreground   i3wm.foreground #000000
-set_from_resource $background   i3wm.background #000000
-set_from_resource $highlights   i3wm.highlights #000000
+set_from_resource $foreground   foreground #000000
+set_from_resource $background   background #000000
+set_from_resource $highlights   highlights #0000FF
 
-set_from_resource $black    i3wm.color0     #000000
-set_from_resource $red      i3wm.color1     #000000
-set_from_resource $green    i3wm.color2     #000000
-set_from_resource $yellow   i3wm.color3     #000000
-set_from_resource $blue     i3wm.color4     #000000
-set_from_resource $magenta  i3wm.color5     #000000
-set_from_resource $cyan     i3wm.color6     #000000
-set_from_resource $gray     i3wm.color7     #000000
+set_from_resource $black    color0     #000000
+set_from_resource $red      color1     #000000
+set_from_resource $green    color2     #000000
+set_from_resource $yellow   color3     #000000
+set_from_resource $blue     color4     #000000
+set_from_resource $magenta  color5     #000000
+set_from_resource $cyan     color6     #000000
+set_from_resource $gray     color7     #000000
 
-set_from_resource $hgray    i3wm.color8     #000000
-set_from_resource $hred     i3wm.color9     #000000
-set_from_resource $hgreen   i3wm.color10    #000000
-set_from_resource $hyellow  i3wm.color11    #000000
-set_from_resource $hblue    i3wm.color12    #000000
-set_from_resource $hmagenta i3wm.color13    #000000
-set_from_resource $hcyan    i3wm.color14    #000000
-set_from_resource $white    i3wm.color15    #FFFFFF
+set_from_resource $hgray    color8     #000000
+set_from_resource $hred     color9     #000000
+set_from_resource $hgreen   color10    #000000
+set_from_resource $hyellow  color11    #000000
+set_from_resource $hblue    color12    #000000
+set_from_resource $hmagenta color13    #000000
+set_from_resource $hcyan    color14    #000000
+set_from_resource $white    color15    #FFFFFF
 
 ## OLD COLOR SHIZZLE ##
 # class                     border  backgr. text    indicator
@@ -37,7 +37,7 @@ set_from_resource $white    i3wm.color15    #FFFFFF
 # Set border colors using Xresources data
 # class                     border      background  text        indicator
 client.focused              $highlights $highlights $white      $white
-client.focused_inactive     $gray       $gray       $white      $grey
-client.unfocused            $gray       $gray       $hgray      $gray
+client.focused_inactive     $hgra       $hgray      $white      $grey
+client.unfocused            $hgra       $hgray      $hgray      $gray
 #client.urgent
 #client.placeholder
