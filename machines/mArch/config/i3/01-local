@@ -1,5 +1,6 @@
 # Launch Lemonbar
-exec sh ~/.config/lemonbar/init.sh 
+# exec sh ~/.config/lemonbar/init.sh 
+exec ~/.config/Lemonbar-Helper/venv/bin/python ~/.config/Lemonbar-Helper/bar.py
 
 
 # Workspace location 

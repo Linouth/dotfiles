@@ -6,11 +6,11 @@ dunst:
     substitute: True
 
 i3:
-    infiles: '~/.config/i3/0*'
+    infiles: '~/.config/i4/0*'
     outfile: '~/.config/i3/config'
     substitute: False
 
 lemonbar:
-    infiles: '~/src/LemonbarHelper/Lemonbar-Helper/config.yaml.base'
-    outfile: '~/src/LemonbarHelper/Lemonbar-Helper/config.yaml'
+    infiles: '~/.config/Lemonbar-Helper/config.yaml.base'
+    outfile: '~/.config/Lemonbar-Helper/config.yaml'
     substitute: True

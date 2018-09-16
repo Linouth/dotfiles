@@ -7,7 +7,7 @@
     ~/.config/i3/01-local: config/i3/01-local
     ~/.config/bspwm: config/bspwm
     ~/.config/sxhkd: config/sxhkd
-    ~/.config/lemonbar: config/lemonbar
+    ~/.config/Lemonbar-Helper/config.yaml.base: config/Lemonbar-Helper/config.yaml.base
     ~/.config/compton.conf: config/compton.conf
     ~/.config/mopidy: config/mopidy
     ~/.Xresources: Xresources/Xresources

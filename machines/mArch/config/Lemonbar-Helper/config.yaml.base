@@ -1,0 +1,67 @@
+lemonbar:
+    offset:
+        x: 0
+        y: 0
+    dimensions:
+        w: 2560
+        h: 25
+
+    fonts:
+        -
+            str: 'lucy tewi:size=9'
+            offset: 0
+        -
+            str: '-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1'
+            offset: 1
+
+    xresources: False
+    colors:
+        foreground: '$foreground'
+        background: '$background'
+        highlights: '$highlights'
+
+    underline_thickness: 2
+    update_interval: 0.2
+
+
+blocks:
+    left:
+        WorkspacesDots:
+            margin: 0
+            padding: [4, 1]
+            icons:
+                empty:
+                    str: ' ⭕ '
+                nonempty:
+                    str: ' ⬤ '
+                    foreground: '$highlights'
+                visible:
+                    str: ' ⬤ '
+                    foreground: '$highlights'
+            underline: '$highlights'
+        Raw:
+            text: '|'
+        Music:
+            icon:
+                str: '▶'
+                foreground: '$highlights'
+            margin: 2
+
+
+    center:
+        Clock:
+            layout: '%a, %d %b, %_H:%M'
+
+    right:
+        Volume:
+            icon:
+                str: ''
+                foreground: '$highlights'
+            interval: 1
+            padding: [2, 1]
+        Memory:
+            icon:
+                str: ''
+                foreground: '$highlights'
+            interval: 5
+            padding: [1, 4]
