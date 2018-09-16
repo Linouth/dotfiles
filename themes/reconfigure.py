@@ -59,7 +59,10 @@ def load_config(conf_file='reconfigure.yaml'):
         data = yaml.load(f)
 
         for c in data.values():
-            Config(c['infiles'], c['outfile'], c.get('substitute', True))
+            try:
+                Config(c['infiles'], c['outfile'], c.get('substitute', True))
+            except FileNotFoundError as e:
+                print(str(e))
 
 
 if __name__ == '__main__':
