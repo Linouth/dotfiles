@@ -1,7 +1,7 @@
 #/bin/sh
 
 if [ -f "$userresources" ]; then
-    xrdb -I$HOME/.dotfiles/mArch/Xresources -merge "$userresources"
+    xrdb -I$HOME/.dotfiles/machines/mArch/Xresources -merge "$userresources"
 fi
 
 # Configure monitors

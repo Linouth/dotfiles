@@ -1,4 +1,4 @@
-#include <../../themes/active/Xresources>
+#include <../../../themes/active/Xresources>
 #include <./Xresources.d/urxvt>
 #include <./Xresources.d/rofi>
 
