@@ -53,8 +53,18 @@ class Config():
             f.write(self.config)
 
 
+def load_config(conf_file='reconfigure.yaml'):
+    import yaml
+    with open(conf_file, 'r') as f:
+        data = yaml.load(f)
+
+        for c in data.values():
+            Config(c['infiles'], c['outfile'], c.get('substitute', True))
+
+
 if __name__ == '__main__':
-    Config([
-        '~/.config/dunst/dunstrc.base',
-        'templates/dunstrc.theme'], '~/.config/dunst/dunstrc')
-    Config('~/.config/i3/0*', '~/.config/i3/config', substitute=False)
+    # Config([
+    #     '~/.config/dunst/dunstrc.base',
+    #     'templates/dunstrc.theme'], '~/.config/dunst/dunstrc')
+    # Config('~/.config/i3/0*', '~/.config/i3/config', substitute=False)
+    load_config()

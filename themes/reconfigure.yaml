@@ -1,0 +1,16 @@
+dunst:
+    infiles:
+        - '~/.config/dunst/dunstrc.base'
+        - 'templates/dunstrc.theme'
+    outfile: '~/.config/dunst/dunstrc'
+    substitute: True
+
+i3:
+    infiles: '~/.config/i3/0*'
+    outfile: '~/.config/i3/config'
+    substitute: False
+
+lemonbar:
+    infiles: '~/src/LemonbarHelper/Lemonbar-Helper/config.yaml.base'
+    outfile: '~/src/LemonbarHelper/Lemonbar-Helper/config.yaml'
+    substitute: True
