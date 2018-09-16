@@ -17,7 +17,7 @@ set $mod        Mod1
 ##
 
 # Border size
-set $borders    1
+set $borders    2
 
 # Gap sizes
 set $gapso      10
@@ -33,7 +33,7 @@ set $terminal   urxvt
 
 # Set browsers to use
 set $browser        qutebrowser
-set $browser-alt    firefox
+set $browser-alt    brave
 
 # Window options
 focus_follows_mouse             true
@@ -86,9 +86,9 @@ bindsym XF86AudioMute           exec --no-startup-id amixer -c 0 set Master togg
 bindsym $mod+XF86AudioMute      exec --no-startup-id amixer -c 0 set 'Front Panel' toggle
 
 # Music controls
-bindsym XF86AudioPlay       exec --no-startup-id mpc toggle
-bindsym XF86AudioNext       exec --no-startup-id mpc next
-bindsym XF86AudioPrev       exec --no-startup-id mpc prev
+bindsym XF86AudioPlay       exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext       exec --no-startup-id playerctl next
+bindsym XF86AudioPrev       exec --no-startup-id playerctl previous
 
 # Focus parrent/child
 bindsym $mod+a      focus parent
