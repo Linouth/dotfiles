@@ -10,24 +10,34 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim.git'
+Plug 'arcticicestudio/nord-vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'felixhummel/setcolors.vim'
+" Plug 'felixhummel/setcolors.vim'
+
 Plug 'sjl/gundo.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'xolox/vim-easytags'
+Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
-Plug 'nvie/vim-flake8', { 'for': 'python'}
+" Plug 'nvie/vim-flake8', { 'for': 'python'}
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'lervag/vimtex', { 'for': 'latex' }
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-syntax'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 call plug#end()
 
@@ -53,6 +63,7 @@ set autoindent
 " Basic editing config
 " --------------------
 set relativenumber  " relative line numbering
+set nu
 set incsearch       " search while string is being typed
 set hls             " highlight search
 set listchars=tab:>>,nbsp:~     " set list to see tabs and non-breakable spaces
@@ -138,4 +149,34 @@ map  <Space> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#clang#libclang_path = '/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+
+" Use smartcase.
+call deoplete#custom#option('smart_case', v:true)
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+
+" <C-g>; undo last insert
+inoremap <expr><C-g>     deoplete#undo_completion()
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<Tab>"
+
+" Jedi-VIM
+let g:jedi#completions_enabled = 0
+
+
 source ~/.vim/vimrc-local
+
