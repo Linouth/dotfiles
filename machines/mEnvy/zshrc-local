@@ -1,9 +1,13 @@
 #!/bin/zsh
 # Configure global vars
-PATH="$PATH:/home/marten/.bin"
+PATH="$PATH:/home/marten/.bin:/home/marten/.gem/ruby/2.5.0/bin"
 
 # Set theme
 antigen theme afowler
 
 # Add base16-shell plugin for 256bit colors
 # antigen use chriskempson/base16-shell
+
+
+# Aliasing
+alias arctools='/usr/lib/jvm/java-10-openjdk/bin/java -Dsun.java2d.uiScale=2 -jar ~/Documents/Uni/Module\ 5/ARCTools/ARCToolsv2.1.2.jar'
