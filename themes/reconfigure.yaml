@@ -6,7 +6,7 @@ dunst:
     substitute: True
 
 i3:
-    infiles: '~/.config/i4/0*'
+    infiles: '~/.config/i3/0*'
     outfile: '~/.config/i3/config'
     substitute: False
 
