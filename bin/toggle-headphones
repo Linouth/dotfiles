@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+
+speakers=$(amixer -c0 get Speaker | grep -o 'off')
+
+if [ -z $speakers ]; then
+    amixer -c0 set Speaker off
+    amixer -c0 set Master 30
+else
+    amixer -c0 set Speaker on
+    amixer -c0 set Master 60
+fi

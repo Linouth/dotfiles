@@ -1,0 +1,18 @@
+#!/bin/bash
+
+acpi=$(acpi)
+charging=$(grep 'Charging' <<< $acpi)
+perc=$(cut -d',' -f2 <<< $acpi | grep -oP '[\d]+')
+
+if [ -z "$charging" ]
+then
+    if [ $perc -le 10 ]
+    then
+        notify-send -u critical "Battery Low" "Battery left: $perc%"
+        echo 'Critically low!'
+    elif [ $perc -le 15 ]
+    then
+        notify-send -u normal "Battery Low" "Battery left: $perc%"
+        echo 'Battery low'
+    fi
+fi
