@@ -5,7 +5,7 @@
 
 - link:
     ~/.config/i3/01-local: config/i3/01-local
-    ~/.config/lemonbar: config/lemonbar
+    ~/.config/Lemonbar-Helper/config.yaml.base: config/Lemonbar-Helper/config.yaml.base
     ~/.config/compton.conf: config/compton.conf
     ~/.Xresources: Xresources/Xresources
     ~/.xinitrc-local:

@@ -3,7 +3,9 @@
 # exec --no-startup-id sh ~/.bin/setwp
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/.wallpaper
 
-exec sh ~/.config/lemonbar/init.sh
+# Launche Lemonbar
+# exec sh ~/.config/lemonbar/init.sh
+exec ~/.config/Lemonbar-Helper/venv/bin/python ~/.config/Lemonbar-Helper/bar.py -c ~/.config/Lemonbar-Helper/config.yaml
 
 exec redshift -l 52.5125:6.09444
 
