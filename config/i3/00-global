@@ -22,8 +22,8 @@ set $borders    2
 # Gap sizes
 set $gapso      10
 set $gapsi      15
-set $pgapso     32
-set $pgapsi     8
+set $pgapso     2
+set $pgapsi     4
 
 # Pixels to resize with in resize mode
 set $resize     5
