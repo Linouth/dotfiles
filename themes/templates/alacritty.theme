@@ -15,7 +15,7 @@ colors:
         white:      '$color7'
 
     bright:
-        black:      '$background'
+        black:      '$color8'
         red:        '$color9'
         green:      '$color10'
         yellow:     '$color11'
