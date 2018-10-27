@@ -1,6 +1,9 @@
 #!/bin/zsh
 # Configure global vars
-PATH="$PATH:/home/marten/.bin:/home/marten/.gem/ruby/2.5.0/bin"
+PATH="$PATH:$HOME/.bin:$HOME/.gem/ruby/2.5.0/bin"
+
+PATH="$PATH:$HOME/src/ESP32/xtensa-esp32-elf/bin"
+IDF_PATH="$HOME/src/ESP32/esp-idf"
 
 # Set theme
 antigen theme afowler
