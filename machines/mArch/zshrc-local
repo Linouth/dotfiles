@@ -1,5 +1,6 @@
 # Configure global vars
-PATH="$PATH:/home/marten/.bin"
+PATH="$PATH:$home/.bin"
+PATH="$PATH:$home/src/ESP32/xtensa-esp32-elf/bin"
 
 # Set theme
 antigen theme afowler
