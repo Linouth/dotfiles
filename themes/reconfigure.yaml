@@ -14,3 +14,10 @@ lemonbar:
     infiles: '~/.config/Lemonbar-Helper/config.yaml.base'
     outfile: '~/.config/Lemonbar-Helper/config.yaml'
     substitute: True
+
+alacritty:
+    infiles: 
+        - '~/.config/alacritty/alacritty.yml.base'
+        - 'templates/alacritty.theme'
+    outfile: '~/.config/alacritty/alacritty.yml'
+    substitute: True

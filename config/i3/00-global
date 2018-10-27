@@ -29,7 +29,7 @@ set $pgapsi     8
 set $resize     5
 
 # Set termial to use
-set $terminal   urxvt
+set $terminal   alacritty
 
 # Set browsers to use
 set $browser        qutebrowser
