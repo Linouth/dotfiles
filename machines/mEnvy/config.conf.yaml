@@ -7,6 +7,7 @@
     ~/.config/i3/01-local: config/i3/01-local
     ~/.config/Lemonbar-Helper/config.yaml.base: config/Lemonbar-Helper/config.yaml.base
     ~/.config/compton.conf: config/compton.conf
+    ~/.config/alacritty/alacritty.yml.base: config/alacritty/alacritty.yml.base
     ~/.Xresources: Xresources/Xresources
     ~/.xinitrc-local:
     ~/.zshrc-local:
