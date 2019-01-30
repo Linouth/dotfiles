@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo 'Usage: ddspawn <instance> <cmd> [-s] [-r WxH] [-p X+Y]'
+    exit
+fi
+
+# Set index for getopts
+OPTIND=3
+
+instance="[instance=\"$1\"]"
+
+if xwininfo -tree -root | grep "(\"$1\" "; then
+    echo "Window detected, doing nothing."
+    i3-msg "$instance scratchpad show"
+else
+    echo "Spawning window."
+    i3-msg "exec alacritty --title dropdown --class $1 -e $2"
+    sleep .30 # Wait so command is executed
+    i3-msg "$instance scratchpad show"
+
+    while getopts "sr:p:" option; do
+        case $option in
+            s) i3-msg "$instance sticky enable";;
+            r) win_resize ${OPTARG//x/ };;
+            p) win_relocate ${OPTARG//x/ };;
+            *) echo "Not a valid argument -$OPTARG";;
+        esac
+    done
+fi

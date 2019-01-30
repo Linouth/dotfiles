@@ -1,0 +1,256 @@
+###
+# Global i3 configuration
+###
+
+### Definitions
+
+set $mod        Mod1
+
+# Default programs
+set $terminal   alacritty
+set $browser    chromium
+
+# Some misc configs
+focus_follows_mouse             true
+popup_during_fullscreen         smart
+floating_maximum_size           1700 x 1750
+floating_modifier               $mod
+workspace_auto_back_and_forth   yes
+workspace_layout                default
+
+
+### Dropdown config
+
+for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] move scratchpad
+for_window [title="dropdown"] move position center
+for_window [title="dropdown"] resize set 1400 800
+
+
+### Autostart
+
+# Setting wallpaper
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/.wallpaper
+
+# Launch Lemonbar
+exec --no-startup-id ~/.config/Lemonbar-Helper/venv/bin/python ~/.config/Lemonbar-Helper/bar.py -c ~/.config/Lemonbar-Helper/config.yaml
+
+# Launch redshift
+exec --no-startup-id redshift -l 52.5125:6.09444
+
+
+### Borders and Gaps
+
+hide_edge_borders   both
+smart_borders       no_gaps
+new_float           pixel $borders
+new_window          pixel $borders
+
+gaps inner      $gapsi
+gaps outer      $gapso
+
+
+### Workspaces
+
+# Workspace names
+set $ws1                "1"
+set $ws2                "2"
+set $ws3                "3"
+set $ws4                "4"
+set $ws5                "5"
+set $ws6                "6"
+set $ws7                "7"
+set $ws8                "8"
+set $ws9                "9"
+set $ws0                "0"
+
+# Switch to certain workspaces
+bindsym $mod+comma      workspace prev
+bindsym $mod+period     workspace next
+bindsym $mod+1          workspace $ws1
+bindsym $mod+2          workspace $ws2
+bindsym $mod+3          workspace $ws3
+bindsym $mod+4          workspace $ws4
+bindsym $mod+5          workspace $ws5
+bindsym $mod+6          workspace $ws6
+bindsym $mod+7          workspace $ws7
+bindsym $mod+8          workspace $ws8
+bindsym $mod+9          workspace $ws9
+bindsym $mod+0          workspace $ws0
+
+# Move container to workspace
+bindsym $mod+Shift+comma    move container to workspace prev
+bindsym $mod+Shift+period   move container to workspace next
+bindsym $mod+Shift+1        move container to workspace $ws1
+bindsym $mod+Shift+2        move container to workspace $ws2
+bindsym $mod+Shift+3        move container to workspace $ws3
+bindsym $mod+Shift+4        move container to workspace $ws4
+bindsym $mod+Shift+5        move container to workspace $ws5
+bindsym $mod+Shift+6        move container to workspace $ws6
+bindsym $mod+Shift+7        move container to workspace $ws7
+bindsym $mod+Shift+8        move container to workspace $ws8
+bindsym $mod+Shift+9        move container to workspace $ws9
+bindsym $mod+Shift+0        move container to workspace $ws0
+
+
+### Modes
+
+mode "resize" {
+    bindsym h   resize shrink width 10px or 10ppt
+    bindsym j   resize grow height 10px or 10ppt
+    bindsym k   resize shrink height 10px or 10ppt
+    bindsym l   resize grow width 10px or 10ppt
+
+    bindsym Shift+h   resize shrink width 25px or 25ppt
+    bindsym Shift+j   resize grow height 25px or 25ppt
+    bindsym Shift+k   resize shrink height 25px or 25ppt
+    bindsym Shift+l   resize grow width 25px or 25ppt
+
+
+    bindsym Left    resize shrink width 10px or 10ppt
+    bindsym Down    resize grow height 10px or 10ppt
+    bindsym Up      resize shrink height 10px or 10ppt
+    bindsym Right   resize grow width 10px or 10ppt
+
+    bindsym Shift+Left   resize shrink width 25px or 25ppt
+    bindsym Shift+Down   resize grow height 25px or 25ppt
+    bindsym Shift+Up   resize shrink height 25px or 25ppt
+    bindsym Shift+Right   resize grow width 25px or 25ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+### Keybindings
+
+bindsym $mod+Return 		exec --no-startup-id $terminal
+bindsym $mod+Shift+Return	exec --no-startup-id ddspawn ddterm zsh -s -r 50%x50% -p centerxcenter
+
+bindsym $mod+Shift+space 	floating toggle
+bindsym $mod+space		    focus mode_toggle
+
+bindsym $mod+Escape		    workspace prev
+bindsym $mod+Shift+Escape 	exec exit
+
+#bindsym $mod+BackSpace
+#bindsym $mod+Shift+BackSpace	
+
+bindsym $mod+Tab            workspace back_and_forth
+#bindsym $mod+Tab           
+
+## Letters
+bindsym $mod+a              focus parent
+#bindsym $mod+Shift+a        
+
+bindsym $mod+b              focus child
+#bindsym $mod+Shift+b        
+
+#bindsym $mod+c              
+#bindsym $mod+Shift+c        
+
+bindsym $mod+d              exec --no-startup-id rofi -show run
+bindsym $mod+Shift+d        exec --no-startup-id rofi -show window
+
+bindsym $mod+e              exec --no-startup-id ddspawn ddranger ranger -s -p right-100xbottom-100
+#bindsym $mod+Shift+e        
+
+bindsym $mod+f              fullscreen
+#bindsym $mod+Shift+f        
+
+bindsym $mod+g              split h
+#bindsym $mod+Shift+g        
+
+bindsym $mod+h              focus left
+bindsym $mod+Shift+h        move left
+
+#bindsym $mod+i              
+#bindsym $mod+Shift+i        
+
+bindsym $mod+j              focus down
+bindsym $mod+Shift+j        move down
+
+bindsym $mod+k              focus up
+bindsym $mod+Shift+k        move up
+
+bindsym $mod+l              focus right
+bindsym $mod+Shift+l        move right
+
+bindsym $mod+m              gaps inner current set $gapsi; gaps outer current set $gapso
+bindsym $mod+Shift+m        gaps inner current set $agapsi; gaps outer current set $agapso
+
+bindsym $mod+n              gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+Shift+n        
+
+#bindsym $mod+o              
+#bindsym $mod+Shift+o        
+
+#bindsym $mod+p              
+#bindsym $mod+Shift+p        
+
+bindsym $mod+q              kill
+bindsym $mod+Shift+q        kill
+
+bindsym $mod+r              mode "resize"
+#bindsym $mod+Shift+r        
+
+bindsym $mod+s              [title="^(?!dropdown)"] scratchpad show
+bindsym $mod+Shift+s        move scratchpad
+
+bindsym $mod+t              layout tabbed
+bindsym $mod+Shift+t        layout splith
+
+#bindsym $mod+u              
+#bindsym $mod+Shift+u        
+
+bindsym $mod+v              split v
+#bindsym $mod+Shift+v        
+
+#bindsym $mod+w              
+bindsym $mod+Shift+w        exec $browser
+
+#bindsym $mod+x              
+#bindsym $mod+Shift+x        
+
+bindsym $mod+y              layout toggle split
+#bindsym $mod+Shift+y        
+
+#bindsym $mod+z              
+#bindsym $mod+Shift+z        
+
+## Arrows
+bindsym $mod+Left		    focus left
+bindsym $mod+Down		    focus down
+bindsym $mod+Up			    focus up
+bindsym $mod+Right 		    focus right
+bindsym $mod+Shift+Left		move left
+bindsym $mod+Shift+Down		move down
+bindsym $mod+Shift+Up		move up
+bindsym $mod+Shift+Right 	move right
+
+## Media keys
+bindsym XF86AudioRaiseVolume    exec --no-startup-id amixer -c 0 set Master 2+
+bindsym XF86AudioLowerVolume    exec --no-startup-id amixer -c 0 set Master 2-
+bindsym XF86AudioMute           exec --no-startup-id amixer -c 0 set Master toggle
+
+# Toggle headphones (desktop)
+bindsym $mod+XF86AudioMute      exec --no-startup-id amixer -c 0 set 'Front Panel' toggle
+
+# Music controls
+bindsym XF86AudioPlay           exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext           exec --no-startup-id playerctl next
+bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
+
+# Take Screenshot
+bindsym --release Print         exec --no-startup-id scrot -q85 -s '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'echo -n $f | xsel --clipboard'
+bindsym --release Shift+Print   exec --no-startup-id scrot -q85 -s '~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e '~/.bin/imgur.py $f 2>>~/Pictures/Screenshots/url_delete | xsel --clipboard'
+
+
+### Program specific config
+
+assign [window_role="popup"]    floating enable
+for_window          [instance="floating"] floating enable
+
+
+
+

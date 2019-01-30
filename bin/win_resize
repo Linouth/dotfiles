@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -z "$1" ] || [ -z "$2" ] && echo "Usage: win_resize <x> <y>" && exit
+
+xdotool windowsize $(xdotool getwindowfocus) "$1" "$2"

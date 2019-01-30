@@ -4,7 +4,7 @@
         create: true
 
 - link:
-    ~/.config/i3/01-local: config/i3/01-local
+    ~/.config/i3/02-local: config/i3/02-local
     ~/.config/bspwm: config/bspwm
     ~/.config/sxhkd: config/sxhkd
     ~/.config/Lemonbar-Helper/config.yaml.base: config/Lemonbar-Helper/config.yaml.base

@@ -1,13 +1,13 @@
-#!/bin/zsh
+#!/bin/sh
 
 
 if [ ! -z "$2" ]; then
-	ln -sf $2 ~/Pictures/Wallpapers/.wallpaper
-	echo $2
+	ln -sf "$2" ~/Pictures/Wallpapers/.wallpaper
+	echo "$2"
 fi
 
 if [ ! -z "$1" ]; then
-	if [ $1 = "t" ]; then
+	if [ "$1" = "t" ]; then
 		feh --bg-tile ~/Pictures/Wallpapers/.wallpaper
 	else
 		feh --bg-fill ~/Pictures/Wallpapers/.wallpaper

@@ -12,20 +12,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'flazz/vim-colorschemes'
-" Plug 'felixhummel/setcolors.vim'
 
-Plug 'sjl/gundo.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
-" Plug 'nvie/vim-flake8', { 'for': 'python'}
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
@@ -38,6 +33,8 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+Plug 'KeitaNakamura/highlighter.nvim'
 
 call plug#end()
 
@@ -132,9 +129,6 @@ noremap <C-Y> 8<C-Y>
 " tagbar
 nnoremap <Leader>t :TagbarToggle<CR>
 
-" gundo
-nnoremap <Leader>u :GundoToggle<CR>
-
 " ctrlp
 nnoremap ; :CtrlPBuffer<CR>
 let g:ctrlp_switch_buffer = 0
@@ -176,6 +170,16 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<Tab>"
 
 " Jedi-VIM
 let g:jedi#completions_enabled = 0
+
+" Highlighter
+let g:highligher#auto_update = 2
+let g:highlighter#project_root_signs = ['.git']
+
+" Ale linter
+" let g:ale_c_parse_makefile = 1
+let g:ale_c_parse_compile_commands = 1
+" let g:ale_c_clang_options = '-I/home/marten/src/ESP32/btrecv/ /home/marten/src/ESP32/esp-idf/components/**/include/**'
+
 
 
 source ~/.vim/vimrc-local

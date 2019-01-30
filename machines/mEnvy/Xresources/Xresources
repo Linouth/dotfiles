@@ -1,6 +1,4 @@
 #include <../../../themes/active/Xresources>
-#include <./Xresources.d/urxvt>
-#include <./Xresources.d/rofi>
 
-/* *font: xft:Gohu GohuFont:pixelsize=20 */
 *font: xft:Hack:size=11
+Xft.dpi: 168

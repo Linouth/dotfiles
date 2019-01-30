@@ -1,8 +1,17 @@
-##
-# Colors
-##
+###
+# Theme specific i3 configuration
+###
 
-# Load colors from XResources
+### Definitions
+set $borders    2
+
+# Gap sizes
+set $gapso      10
+set $gapsi      15
+set $pgapso     2
+set $pgapsi     4
+
+### Load colors from XResources
 set_from_resource $foreground   foreground #000000
 set_from_resource $background   background #000000
 set_from_resource $highlights   highlights #0000FF
@@ -25,19 +34,13 @@ set_from_resource $hmagenta color13    #000000
 set_from_resource $hcyan    color14    #000000
 set_from_resource $white    color15    #FFFFFF
 
-## OLD COLOR SHIZZLE ##
-# class                     border  backgr. text    indicator
-# client.focused              #95C085 #95C085 #f5f5f5 #f5f5f5
-# client.focused_inactive     #303030 #303030 #f5f5f5 #303030
-# client.unfocused            #303030 #303030 #888888 #303030
-#client.urgent              #2f343a #900000 #ffffff #900000
-#client.placeholder         #000000 #0c0c0c #ffffff #000000
-
-
 # Set border colors using Xresources data
 # class                     border      background  text        indicator
 client.focused              $highlights $highlights $white      $white
-client.focused_inactive     $hgra       $hgray      $white      $grey
-client.unfocused            $hgra       $hgray      $hgray      $gray
+client.focused_inactive     $hgray      $hgray      $white      $grey
+client.unfocused            $hgray      $hgray      $hgray      $gray
 #client.urgent
-#client.placeholder
+
+
+
+

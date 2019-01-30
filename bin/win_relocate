@@ -1,0 +1,69 @@
+#!/bin/sh
+
+usage() {
+    echo "Usage: win_relocate <x|pos> <y>"
+    exit
+}
+
+# Current focused window
+current=$(xdotool getwindowfocus)
+
+# Find actual window size
+windowsize=$(xdotool getwindowgeometry "$current" | sed -n 's/^.* \([0-9]*\)x\([0-9]*\)/\1 \2/p')
+
+win_width=$(echo "$windowsize" | awk '{print $1}')
+win_height=$(echo "$windowsize" | awk '{print $2}')
+
+mon_width=$(xdotool getdisplaygeometry | awk '{print $1}')
+mon_height=$(xdotool getdisplaygeometry | awk '{print $2}')
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    usage
+else
+    # Horizontal offset
+    if [ "$1" -eq "$1" ] 2>/dev/null; then
+        [ "$1" -gt 0 ] && horizontal=$1 || horizontal=$((mon_width - win_width + $1))
+    else
+        loc=$(echo "$1" | sed "s/[+-][0-9]*//")
+        offset=$(echo "$1" | sed "s/[a-z]*+?//")
+        case "$loc" in
+            center)
+                horizontal=$(((mon_width - win_width) / 2 + offset))
+                ;;
+            left)
+                horizontal=$((0 + offset))
+                ;;
+            right)
+                horizontal=$((mon_width - win_width + offset))
+                ;;
+            *) 
+                echo "invalid option: $ARGOPT"
+                exit
+        esac
+    fi
+
+    # Vertical offset
+    if [ "$2" -eq "$2" ] 2>/dev/null; then
+        [ "$2" -gt 0 ] && vertical=$2 || vertical=$((mon_height - win_height + $2))
+    else
+        loc=$(echo "$2" | sed "s/[+-][0-9]*//")
+        offset=$(echo "$2" | sed "s/[a-z]*+?//")
+        case "$loc" in
+            center)
+                vertical=$(((mon_height - win_height) / 2 + offset))
+                ;;
+            top)
+                vertical=$((0 + offset))
+                ;;
+            bottom)
+                vertical=$((mon_height - win_height + offset))
+                ;;
+            *) 
+                echo "invalid option: $ARGOPT"
+                exit
+        esac
+    fi
+fi
+
+# Set new window position
+xdotool windowmove "$current" $horizontal $vertical

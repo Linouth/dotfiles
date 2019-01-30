@@ -1,0 +1,15 @@
+###
+# Machine specific config (mostly keybindings)
+###
+
+## Misc
+# Change screen brightness
+bindsym XF86MonBrightnessUp     exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown   exec --no-startup-id light -U 10
+bindsym $mod+F3                 exec --no-startup-id light -S 70
+bindsym Shift+F3                exec --no-startup-id light -A 1
+bindsym $mod+F2                 exec --no-startup-id light -S 1
+bindsym Shift+F2                exec --no-startup-id light -U 1
+
+# Change audio settings
+bindsym $mod+F6                 exec --no-startup-id "~/.bin/toggle-headphones"

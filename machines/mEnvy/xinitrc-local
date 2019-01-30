@@ -4,6 +4,10 @@ if [ -f "$userresources" ]; then
     xrdb -I$HOME/.dotfiles/machines/mEnvy/Xresources -merge "$userresources"
 fi
 
+if [ -d "$HOME/.bin" ]; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
 # Launch Redshift
 #redshift -l 52.743142:5.852879 &
 
@@ -13,6 +17,7 @@ fi
 #sxhkd &
 #exec bspwm
 
-xrandr --dpi 300
-cat ~/.config/i3/0* > ~/.config/i3/config
+#xrandr --dpi 168
+# cat ~/.config/i3/0* > ~/.config/i3/config
+cd ~/.themes && python reconfigure.py; cd
 exec i3 

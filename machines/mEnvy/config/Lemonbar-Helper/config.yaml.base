@@ -48,7 +48,7 @@ blocks:
     right:
         Wifi:
             icon: ''
-            interface: 'wlp1s0'
+            interface: 'wlan0'
             margin: 2
         Volume:
             icon: ''
@@ -72,3 +72,5 @@ blocks:
             swap: True
             power_supply: 'BAT1'
             padding: [1, 2]
+
+# vim:syntax=yaml
